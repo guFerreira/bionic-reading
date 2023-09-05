@@ -4,6 +4,10 @@ function transformWord(word){
   if (word.length <= 1) {
     return word
   }
+
+  if (word.includes(' ')) {
+    throw new Error('A palavra é uma frase')
+  }
   const halfWord = Math.round(word.length / 2)
 
   const letters = []
@@ -22,8 +26,19 @@ function transformWord(word){
   return letters.join("")
 }
 
+function transformPhrase(phrase) {
+  const pharseSplited = phrase.split(' ')
+  const words = []
+  for (const word of pharseSplited) {
+    const transformedWord = transformWord(word)
+    words.push(transformedWord)
+  }
+  return words.join(' ')
+}
+
 module.exports = {
-  transformWord
+  transformWord,
+  transformPhrase
 }
 
 
