@@ -1,4 +1,4 @@
-const letterService = require('./index');
+const letterService = require('./wordService');
 
 describe('letterService', () => {
   test('should transform word when word have inpar lenght', () => {
